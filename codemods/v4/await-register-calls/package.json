@@ -1,0 +1,15 @@
+{
+	"name": "@fastify-codemods/fastify-4-await-register-calls",
+	"version": "0.1.0",
+	"description": "Transform fastify.register() calls to use await for better error reporting in Fastify v4",
+	"private": true,
+	"type": "module",
+	"devDependencies": {
+		"@codemod.com/jssg-types": "^1.0.3",
+		"typescript": "^5.8.3"
+	},
+	"scripts": {
+		"test": "npx codemod@latest jssg test -l typescript ./scripts/codemod.ts",
+		"check-types": "npx tsc --noEmit"
+	}
+}

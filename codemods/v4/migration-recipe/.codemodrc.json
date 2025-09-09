@@ -1,0 +1,37 @@
+{
+  "name": "fastify-4-migration-recipe",
+  "version": "0.1.0",
+  "description": "Complete migration recipe for upgrading to Fastify v4",
+  "steps": [
+    {
+      "name": "await-register-calls",
+      "description": "Transform fastify.register() calls to use await",
+      "codemod": "./await-register-calls/scripts/codemod.ts"
+    },
+    {
+      "name": "expose-head-routes", 
+      "description": "Add HEAD route exposure for GET routes",
+      "codemod": "./expose-head-routes/scripts/codemod.ts"
+    },
+    {
+      "name": "remove-app-use",
+      "description": "Remove deprecated app.use() calls", 
+      "codemod": "./remove-app-use/scripts/codemod.ts"
+    },
+    {
+      "name": "reply-raw-access",
+      "description": "Update reply.raw access patterns",
+      "codemod": "./reply-raw-access/scripts/codemod.ts"
+    },
+    {
+      "name": "url-params-optional",
+      "description": "Update URL parameter handling for optional parameters",
+      "codemod": "./url-params-optional/scripts/codemod.ts"
+    },
+    {
+      "name": "wrap-routes-plugin",
+      "description": "Wrap routes in plugins for better organization",
+      "codemod": "./wrap-routes-plugin/scripts/codemod.ts"
+    }
+  ]
+}

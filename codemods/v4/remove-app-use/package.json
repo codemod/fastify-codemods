@@ -1,7 +1,8 @@
 {
-	"name": "jssg-codemod",
+	"name": "@fastify-codemods/fastify-4-remove-app-use",
 	"version": "0.1.0",
-	"description": "Transform legacy code patterns",
+	"description": "Remove deprecated app.use() calls in Fastify v4",
+	"private": true,
 	"type": "module",
 	"devDependencies": {
 		"@codemod.com/jssg-types": "^1.0.3",

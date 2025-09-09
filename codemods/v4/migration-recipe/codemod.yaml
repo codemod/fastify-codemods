@@ -1,0 +1,18 @@
+schema_version: "1.0"
+
+name: "fastify-4-migration-recipe"
+version: "0.1.0"
+description: "Complete migration workflow for upgrading to Fastify v4 - runs all individual codemods in sequence"
+author: "Codemod"
+license: "MIT"
+workflow: "workflow.yaml"
+category: "migration"
+
+targets:
+  languages: ["typescript", "javascript"]
+
+keywords: ["fastify", "v4", "workflow", "migration", "recipe"]
+
+registry:
+  access: "public"
+  visibility: "public"

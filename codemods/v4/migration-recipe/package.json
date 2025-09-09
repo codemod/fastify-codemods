@@ -1,0 +1,16 @@
+{
+	"name": "@fastify-codemods/fastify-4-migration-recipe",
+	"version": "0.1.0",
+	"description": "Complete migration workflow for upgrading to Fastify v4 - runs all individual codemods in sequence",
+	"private": true,
+	"type": "module",
+	"files": ["./README.md", "./workflow.yaml", "./codemod.yaml", "./run-migration.sh"],
+	"devDependencies": {
+		"@codemod.com/jssg-types": "^1.0.3",
+		"typescript": "^5.8.3"
+	},
+	"scripts": {
+		"check-types": "npx tsc --noEmit",
+		"migrate": "./run-migration.sh"
+	}
+}

@@ -1,0 +1,9 @@
+name: "fastify-4-url-params-optional"
+description: "Update URL parameter handling for optional parameters in Fastify v4"
+
+steps:
+  - name: "Update optional parameter handling"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"

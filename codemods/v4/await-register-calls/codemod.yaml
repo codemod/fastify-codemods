@@ -1,0 +1,18 @@
+schema_version: "1.0"
+
+name: "fastify-4-await-register-calls"
+version: "0.1.0"
+description: "Transform fastify.register() calls to use await for better error reporting in Fastify v4"
+author: "Codemod"
+license: "MIT"
+workflow: "workflow.yaml"
+category: "migration"
+
+targets:
+  languages: ["typescript", "javascript"]
+
+keywords: ["fastify", "v4", "migration", "register", "await"]
+
+registry:
+  access: "public"
+  visibility: "public"

@@ -1,0 +1,9 @@
+name: "fastify-4-expose-head-routes"
+description: "Add HEAD route exposure for GET routes in Fastify v4"
+
+steps:
+  - name: "Add exposeHeadRoute option"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"
