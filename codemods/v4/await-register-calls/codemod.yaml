@@ -11,7 +11,7 @@ category: "migration"
 targets:
   languages: ["typescript", "javascript"]
 
-keywords: ["fastify", "v4", "migration", "register", "await"]
+keywords: ["fastify", "v4"]
 
 registry:
   access: "public"
