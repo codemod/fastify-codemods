@@ -1,9 +1,0 @@
-name: "fastify-4-reply-raw-access"
-description: "Update reply.raw access patterns for Fastify v4 compatibility"
-
-steps:
-  - name: "Update reply.raw access"
-    action: "jssg"
-    config:
-      script: "./scripts/codemod.ts"
-      language: "typescript"

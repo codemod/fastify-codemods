@@ -1,37 +1,24 @@
 {
-  "name": "fastify-4-migration-recipe",
-  "version": "0.1.0",
-  "description": "Complete migration recipe for upgrading to Fastify v4",
-  "steps": [
-    {
-      "name": "await-register-calls",
-      "description": "Transform fastify.register() calls to use await",
-      "codemod": "./await-register-calls/scripts/codemod.ts"
-    },
-    {
-      "name": "expose-head-routes", 
-      "description": "Add HEAD route exposure for GET routes",
-      "codemod": "./expose-head-routes/scripts/codemod.ts"
-    },
-    {
-      "name": "remove-app-use",
-      "description": "Remove deprecated app.use() calls", 
-      "codemod": "./remove-app-use/scripts/codemod.ts"
-    },
-    {
-      "name": "reply-raw-access",
-      "description": "Update reply.raw access patterns",
-      "codemod": "./reply-raw-access/scripts/codemod.ts"
-    },
-    {
-      "name": "url-params-optional",
-      "description": "Update URL parameter handling for optional parameters",
-      "codemod": "./url-params-optional/scripts/codemod.ts"
-    },
-    {
-      "name": "wrap-routes-plugin",
-      "description": "Wrap routes in plugins for better organization",
-      "codemod": "./wrap-routes-plugin/scripts/codemod.ts"
-    }
-  ]
+  "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
+  "name": "fastify/4/migration-recipe",
+  "version": "1.0.2",
+  "private": false,
+  "engine": "recipe",
+  "names": [
+    "fastify/4/await-register-calls",
+    "fastify/4/expose-head-routes",
+    "fastify/4/remove-app-use",
+    "fastify/4/reply-raw-access",
+    "fastify/4/url-params-optional",
+    "fastify/4/wrap-routes-plugin"
+  ],
+  "applicability": {
+    "from": [["fastify", ">=", "3.0.0"], ["fastify", "<", "4.0.0"]],
+    "to": [["fastify", ">=", "4.0.0"]]
+  },
+  "meta": {
+    "tags": ["fastify", "migration"],
+    "git": "https://github.com/codemod-com/codemod/tree/main/packages/codemods/fastify/4/migration-recipe"
+  },
+  "include": ["/.js", "/.jsx", "/.ts", "/.tsx", "/*.vue"]
 }

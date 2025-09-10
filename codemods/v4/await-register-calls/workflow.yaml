@@ -1,9 +1,0 @@
-name: "fastify-4-await-register-calls"
-description: "Transform fastify.register() calls to use await for better error reporting in Fastify v4"
-
-steps:
-  - name: "Transform register calls"
-    action: "jssg"
-    config:
-      script: "./scripts/codemod.ts"
-      language: "typescript"

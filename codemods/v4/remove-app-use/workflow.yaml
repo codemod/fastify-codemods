@@ -1,9 +1,0 @@
-name: "fastify-4-remove-app-use"
-description: "Remove deprecated app.use() calls in Fastify v4"
-
-steps:
-  - name: "Remove app.use calls"
-    action: "jssg"
-    config:
-      script: "./scripts/codemod.ts"
-      language: "typescript"

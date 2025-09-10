@@ -1,44 +1,53 @@
-# Fastify v4: Remove App Use
+This codemod removes app.use()  and the use of middleware is no longer supported.
 
-This codemod removes deprecated `app.use()` calls in Fastify v4. The `app.use()` method has been removed in Fastify v4 and should be replaced with proper Fastify middleware registration.
+🚦 **Impact Level**: Minimal
+
+## What Changed
+
+With v4 of Fastify, app.use() has been removed and the use of middleware is no longer supported.
+
+If you need to use middleware, use @fastify/middie or @fastify/express, which will continue to be maintained. However, it is strongly recommended that you migrate to Fastify's hooks.
+
 
 ## Before
 
-```javascript
+```jsx
 const fastify = require('fastify')();
 
-// Deprecated in Fastify v4
-fastify.use(require('cors')());
-fastify.use(require('helmet')());
+fastify.use((req, res, next) => {
+    console.log('Middleware executed');
+    next();
+});
+
+fastify.get('/example', (req, res) => {
+    res.send('Hello, World!');
+});
+
+fastify.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+
 ```
 
 ## After
 
-```javascript
+```jsx
 const fastify = require('fastify')();
+const middie = require('@fastify/middie');
 
-// Use register() instead
-await fastify.register(require('@fastify/cors'));
-await fastify.register(require('@fastify/helmet'));
+fastify.register(middie);
+
+fastify.use((req, res, next) => {
+    console.log('Middleware executed');
+    next();
+});
+
+fastify.get('/example', (req, res) => {
+    res.send('Hello, World!');
+});
+
+fastify.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+
 ```
-
-## Usage
-
-```bash
-npx codemod@latest jssg run ./scripts/codemod.ts --input ./path/to/your/code
-```
-
-## What it does
-
-- Removes `app.use()` calls that are no longer supported in Fastify v4
-- Provides guidance on replacing with proper Fastify plugins
-- Ensures compatibility with Fastify v4's plugin system
-
-## Manual Intervention Required
-
-This codemod will remove the `app.use()` calls, but you'll need to manually replace them with appropriate Fastify plugins. Common replacements include:
-
-- `cors()` → `@fastify/cors`
-- `helmet()` → `@fastify/helmet`
-- `express-session` → `@fastify/session`
-- Custom middleware → Convert to Fastify plugins

@@ -1,9 +1,0 @@
-name: "fastify-4-wrap-routes-plugin"
-description: "Wrap routes in plugins for better organization in Fastify v4"
-
-steps:
-  - name: "Wrap routes in plugins"
-    action: "jssg"
-    config:
-      script: "./scripts/codemod.ts"
-      language: "typescript"

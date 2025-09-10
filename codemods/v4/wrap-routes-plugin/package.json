@@ -1,15 +1,15 @@
 {
-	"name": "@fastify-codemods/fastify-4-wrap-routes-plugin",
-	"version": "0.1.0",
-	"description": "Wrap routes in plugins for better organization in Fastify v4",
-	"private": true,
-	"type": "module",
-	"devDependencies": {
-		"@codemod.com/jssg-types": "^1.0.3",
-		"typescript": "^5.8.3"
-	},
-	"scripts": {
-		"test": "npx codemod@latest jssg test -l typescript ./scripts/codemod.ts",
-		"check-types": "npx tsc --noEmit"
-	}
+  "name": "@codemod/fastify-4-wrap-routes-plugin",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "jscodeshift": "^0.15.1",
+    "@types/jscodeshift": "^0.11.10",
+    "vitest": "^1.0.1",
+    "@vitest/coverage-v8": "^1.0.1"
+  },
+  "scripts": {},
+  "files": ["./README.md", "./.codemodrc.json", "./dist/index.cjs"],
+  "type": "module"
 }

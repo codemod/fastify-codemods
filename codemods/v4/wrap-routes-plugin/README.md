@@ -1,56 +1,38 @@
-# Fastify v4: Wrap Routes Plugin
+This codemod wrap your routes in a plugin
 
-This codemod helps wrap routes in plugins for better organization in Fastify v4. This is a best practice for organizing routes and making them more modular.
+🚦 **Impact Level**: Minimal
+
+## What Changed
+
+To improve error reporting in route definitions, route registration is now synchronous. As a result, if you specify an onRoute hook in a plugin you should wrap your routes in a plugin.
 
 ## Before
 
-```javascript
-const fastify = require('fastify')();
-
-// Routes defined directly on the main instance
-fastify.get('/users', (request, reply) => {
-  reply.send({ users: [] });
+```jsx
+fastify.register((instance, opts, done) => {
+  instance.addHook('onRoute', (routeOptions) => {
+    const { path, method } = routeOptions;
+    console.log({ path, method });
+    done();
+  });
 });
 
-fastify.get('/users/:id', (request, reply) => {
-  reply.send({ user: { id: request.params.id } });
-});
-
-fastify.post('/users', (request, reply) => {
-  reply.send({ message: 'User created' });
-});
+fastify.get('/', (request, reply) => { reply.send('hello') });
 ```
 
 ## After
 
-```javascript
-const fastify = require('fastify')();
-
-// Routes wrapped in a plugin
-fastify.register(async function (fastify) {
-  fastify.get('/users', (request, reply) => {
-    reply.send({ users: [] });
+```jsx
+fastify.register((instance, opts, done) => {
+  instance.addHook('onRoute', (routeOptions) => {
+    const { path, method } = routeOptions;
+    console.log({ path, method });
+    done();
   });
+});
 
-  fastify.get('/users/:id', (request, reply) => {
-    reply.send({ user: { id: request.params.id } });
-  });
-
-  fastify.post('/users', (request, reply) => {
-    reply.send({ message: 'User created' });
-  });
-}, { prefix: '/api' });
+fastify.register((instance, opts, done) => {
+  instance.get('/', (request, reply) => { reply.send('hello') });
+  done();
+});
 ```
-
-## Usage
-
-```bash
-npx codemod@latest jssg run ./scripts/codemod.ts --input ./path/to/your/code
-```
-
-## What it does
-
-- Wraps related routes in plugin functions
-- Adds proper plugin structure for better organization
-- Maintains route functionality while improving code structure
-- Suggests adding prefixes for better API organization
