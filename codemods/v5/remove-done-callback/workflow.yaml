@@ -1,0 +1,10 @@
+version: "1.0"
+name: "fastify-5-remove-done-callback"
+description: "Remove done callback from fastify.register and replace done() calls with return statements for Fastify v5"
+
+steps:
+  - name: "Remove done callback and replace done() calls"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"

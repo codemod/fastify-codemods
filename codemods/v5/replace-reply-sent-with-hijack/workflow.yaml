@@ -1,0 +1,10 @@
+version: "1.0"
+name: "fastify-5-replace-reply-sent-with-hijack"
+description: "Replace reply.sent = true with reply.hijack() for Fastify v5 compatibility"
+
+steps:
+  - name: "Replace reply.sent = true with reply.hijack()"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"

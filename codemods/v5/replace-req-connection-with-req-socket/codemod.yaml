@@ -1,0 +1,18 @@
+schema_version: "1.0"
+
+name: "fastify-5-replace-req-connection-with-req-socket"
+version: "0.1.0"
+description: "Replace req.connection with req.socket for Fastify v5 compatibility"
+author: "Codemod"
+license: "MIT"
+workflow: "workflow.yaml"
+category: "migration"
+
+targets:
+  languages: ["typescript", "javascript"]
+
+keywords: ["fastify", "v5", "connection", "socket"]
+
+registry:
+  access: "public"
+  visibility: "public"

@@ -1,0 +1,10 @@
+version: "1.0"
+name: "fastify-5-req-params-hasOwnProperty-to-objectHasOwn"
+description: "Transform req.params.hasOwnProperty() calls to Object.hasOwn() for Fastify v5 compatibility"
+
+steps:
+  - name: "Transform hasOwnProperty calls"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"

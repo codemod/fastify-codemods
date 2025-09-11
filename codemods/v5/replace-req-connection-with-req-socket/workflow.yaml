@@ -1,0 +1,10 @@
+version: "1.0"
+name: "fastify-5-replace-req-connection-with-req-socket"
+description: "Replace req.connection with req.socket for Fastify v5 compatibility"
+
+steps:
+  - name: "Replace connection with socket"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"

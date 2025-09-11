@@ -1,0 +1,15 @@
+{
+	"name": "@fastify-codemods/fastify-5-remove-done-callback",
+	"version": "0.1.0",
+	"description": "Remove done callback from fastify.register and replace done() calls with return statements for Fastify v5",
+	"private": true,
+	"type": "module",
+	"devDependencies": {
+		"@codemod.com/jssg-types": "^1.0.3",
+		"typescript": "^5.8.3"
+	},
+	"scripts": {
+		"test": "npx codemod@latest jssg test -l typescript ./scripts/codemod.ts",
+		"check-types": "npx tsc --noEmit"
+	}
+}

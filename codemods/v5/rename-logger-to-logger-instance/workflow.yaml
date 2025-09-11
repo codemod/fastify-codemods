@@ -1,0 +1,10 @@
+version: "1.0"
+name: "fastify-5-rename-logger-to-logger-instance"
+description: "Rename logger to loggerInstance for Fastify v5 compatibility"
+
+steps:
+  - name: "Rename logger to loggerInstance"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"
