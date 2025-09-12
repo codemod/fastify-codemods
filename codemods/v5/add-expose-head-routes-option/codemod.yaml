@@ -1,0 +1,19 @@
+schema_version: "1.0"
+
+name: "fastify-5-add-expose-head-routes-option"
+version: "0.1.0"
+description: "Add exposeHeadRoutes: false option to fastify.get calls for Fastify v5 compatibility"
+author: "Codemod"
+license: "MIT"
+workflow: "workflow.yaml"
+category: "migration"
+
+targets:
+  languages: ["typescript", "javascript"]
+
+keywords: ["fastify", "v5", "exposeHeadRoutes", "head", "routes"]
+
+registry:
+  access: "public"
+  visibility: "public"
+

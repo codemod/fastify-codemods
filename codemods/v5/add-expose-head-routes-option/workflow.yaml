@@ -1,0 +1,11 @@
+version: "1.0"
+name: "fastify-5-add-expose-head-routes-option"
+description: "Add exposeHeadRoutes: false option to fastify.get calls for Fastify v5 compatibility"
+
+steps:
+  - name: "Add exposeHeadRoutes: false option"
+    action: "jssg"
+    config:
+      script: "./scripts/codemod.ts"
+      language: "typescript"
+

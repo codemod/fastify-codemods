@@ -1,4 +1,4 @@
 const loggerInstance = require('pino')();
 const fastify = require('fastify')({
-  logger,
+  loggerInstance,
 });

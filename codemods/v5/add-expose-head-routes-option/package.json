@@ -1,0 +1,16 @@
+{
+	"name": "@fastify-codemods/fastify-5-add-expose-head-routes-option",
+	"version": "0.1.0",
+	"description": "Add exposeHeadRoutes: false option to fastify.get calls for Fastify v5 compatibility",
+	"private": true,
+	"type": "module",
+	"devDependencies": {
+		"@codemod.com/jssg-types": "^1.0.3",
+		"typescript": "^5.8.3"
+	},
+	"scripts": {
+		"test": "npx codemod@latest jssg test -l typescript ./scripts/codemod.ts",
+		"check-types": "npx tsc --noEmit"
+	}
+}
+
