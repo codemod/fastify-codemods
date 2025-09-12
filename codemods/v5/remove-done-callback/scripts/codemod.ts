@@ -3,20 +3,9 @@ import type TS from "codemod:ast-grep/langs/typescript";
 
 async function transform(root: SgRoot<TS>): Promise<string> {
 	const rootNode = root.root();
+	const edits: any[] = [];
 
-	// First, replace done() calls with return statements
-	const doneCalls = rootNode.findAll({
-		rule: {
-			pattern: "done()",
-			kind: "call_expression"
-		}
-	});
-
-	const edits = doneCalls.map((doneCall) => {
-		return doneCall.replace("return");
-	});
-
-	// Then, find and modify fastify.register calls with 3 parameters
+	// Find all fastify.register calls
 	const registerCalls = rootNode.findAll({
 		rule: {
 			pattern: "fastify.register($FUNC)",
@@ -28,21 +17,50 @@ async function transform(root: SgRoot<TS>): Promise<string> {
 		const funcNode = registerCall.getMatch("FUNC");
 		if (!funcNode) continue;
 
-		// Find function parameters with 3 parameters
-		const params = funcNode.findAll({
-			rule: {
-				pattern: "($INSTANCE, $OPTS, $DONE)",
-				kind: "formal_parameters"
-			}
-		});
-
-		if (params.length > 0) {
-			const param = params[0];
-			const instance = param.getMatch("INSTANCE")?.text();
-			const opts = param.getMatch("OPTS")?.text();
+		// Check if it's a function expression or arrow function
+		if (funcNode.is("function_expression") || funcNode.is("arrow_function")) {
+			// Find the formal_parameters node
+			const params = funcNode.find({
+				rule: {
+					kind: "formal_parameters"
+				}
+			});
 			
-			// Replace the parameters with 2 parameters
-			edits.push(param.replace(`(${instance}, ${opts})`));
+			if (!params) continue;
+
+			// Get the parameter children (excluding the parentheses)
+			const paramList = params.children().filter(child => 
+				child.kind() === "required_parameter" || child.kind() === "identifier"
+			);
+			
+			if (paramList.length === 3) {
+				const [instance, opts, done] = paramList;
+				
+				// Remove the third parameter (done)
+				edits.push(params.replace(`(${instance.text()}, ${opts.text()})`));
+
+				// Find and replace done() calls within this function
+				// Use a more general approach to find all call expressions
+				const allCalls = funcNode.findAll({
+					rule: {
+						kind: "call_expression"
+					}
+				});
+
+				// Filter for done() calls manually
+				const doneCalls = allCalls.filter(call => {
+					const callee = call.find({
+						rule: {
+							kind: "identifier"
+						}
+					});
+					return callee && callee.text() === "done";
+				});
+
+				doneCalls.forEach((doneCall) => {
+					edits.push(doneCall.replace("return"));
+				});
+			}
 		}
 	}
 
