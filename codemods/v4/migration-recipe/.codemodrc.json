@@ -1,7 +1,7 @@
 {
   "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
   "name": "fastify/4/migration-recipe",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "private": false,
   "engine": "recipe",
   "names": [
@@ -18,7 +18,7 @@
   },
   "meta": {
     "tags": ["fastify", "migration"],
-    "git": "https://github.com/codemod-com/codemod/tree/main/packages/codemods/fastify/4/migration-recipe"
+    "git": "https://github.com/codemod/fastify-codemods/tree/legacy-codemods/codemods/v4/migration-recipe"
   },
   "include": ["/.js", "/.jsx", "/.ts", "/.tsx", "/*.vue"]
 }

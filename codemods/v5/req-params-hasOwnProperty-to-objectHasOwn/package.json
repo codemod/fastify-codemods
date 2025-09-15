@@ -1,5 +1,11 @@
 {
   "name": "express-has-own-property-to-object-has-own",
+  "version": "1.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemod/fastify-codemods.git",
+    "directory": "codemods/v5/req-params-hasOwnProperty-to-objectHasOwn"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "20.9.0",

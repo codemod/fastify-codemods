@@ -1,10 +1,10 @@
 {
-  "name": "fastify-3-add-expose-head-routes-option",
+  "name": "@codemod/fastify-4-expose-head-routes",
   "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/codemod/fastify-codemods.git",
-    "directory": "codemods/v5/add-expose-head-routes-option"
+    "directory": "codemods/v4/expose-head-routes"
   },
   "license": "MIT",
   "devDependencies": {

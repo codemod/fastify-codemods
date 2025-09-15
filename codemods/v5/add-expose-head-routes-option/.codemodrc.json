@@ -1,7 +1,7 @@
 {
   "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
   "name": "fastify/5/add-expose-head-routes-option",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "engine": "jscodeshift",
   "private": false,
   "applicability": {
@@ -32,6 +32,6 @@
       "5",
       "migration"
     ],
-    "git": "https://github.com/manishjha-04/codemod-hub/tree/main/codemods/fastify/v5/add-expose-head-routes-option"
+    "git": "https://github.com/codemod/fastify-codemods/tree/legacy-codemods/codemods/v5/add-expose-head-routes-option"
   }
 }

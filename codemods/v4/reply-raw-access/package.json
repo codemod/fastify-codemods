@@ -1,5 +1,11 @@
 {
   "name": "@codemod/fastify-4-reply-raw-access",
+  "version": "1.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemod/fastify-codemods.git",
+    "directory": "codemods/v4/reply-raw-access"
+  },
   "dependencies": {},
   "devDependencies": {
     "typescript": "^5.2.2",

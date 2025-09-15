@@ -1,6 +1,6 @@
 {
   "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
-  "name": "fastify/5/route-schema-enhancement",
+  "name": "fastify/4/expose-head-routes",
   "version": "1.0.4",
   "engine": "jscodeshift",
   "private": false,
@@ -9,19 +9,19 @@
       [
         "fastify",
         ">=",
-        "4.0.0"
+        "3.0.0"
       ],
       [
         "fastify",
         "<",
-        "5.0.0"
+        "4.0.0"
       ]
     ],
     "to": [
       [
         "fastify",
         ">=",
-        "5.0.0"
+        "4.0.0"
       ]
     ]
   },
@@ -29,9 +29,9 @@
   "meta": {
     "tags": [
       "fastify",
-      "5",
+      "4",
       "migration"
     ],
-    "git": "https://github.com/codemod/fastify-codemods/tree/legacy-codemods/codemods/v5/querystring-schema-transformer"
+    "git": "https://github.com/codemod/fastify-codemods/tree/legacy-codemods/codemods/v4/expose-head-routes"
   }
 }
